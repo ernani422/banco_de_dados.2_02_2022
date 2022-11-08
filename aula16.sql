@@ -133,11 +133,64 @@ end $$
 
 delimiter ;
 
- call SelectCountryCase(2);
+ /*call SelectCountryCase(2);*/
+
+/*---------------------------------------------------------------------------*/
+/* procedure não tem array*//* tem que fazer selecte em tabela*//* tem que criar uma tabela*/
+
+delimiter $$
+    
+    create procedure SelectLoopLabel()
+    begin
+        declare ctr int;/* precisa ser int a procidore, desclaro por esta ordem */
+        set ctr = 0; /* set, por ele que entende que = e de comparação, mas ele só recebe*/
+  
+loop_label : lOOP 
+        if ctr > 10 then
+            LEAVE loop_label; /*sair(laeve) parecido com comando break*/
+    end if;
+            select ctr as 'CTR';
+            set ctr = ctr + 1;
+    end loop;
+end $$
+
+delimiter ;
+
+ /*call SelectLoopLabel();*/
+
+ /*------------------------------------------------------------------------*/
+
+ delimiter $$
+
+ create procedure RepeatDemo()
+ begin
+    declare ctr int default 1;
+    declare result varchar (100 default '';
+
+    Repeat
+        set result = concat(result, counter, ',');
+        set counter = counter + 1;
+    until counter >= 10
+    end repeat;
+
+    --display result--
+    select result as resultado;
+end $$
+
+delimiter ;
+
+ call RepeatDemo();
+
+/* ELIAS KHALIL JABBOUR [+ ANDRÉ MARINHO] - Flow #133 pesquisa sobre */
+
+/* lin..assemble é para controlar processador ou microcontrolador etc*/
+
+/*https://www.portugues.com.br/gramatica/fonetica-fonologia.html*/
+/*https://studymaps.com.br/fonetica-e-fonologia/
+https://www.educamaisbrasil.com.br/enem/lingua-portuguesa/fonologia*/
+/*https://grad.letras.ufmg.br/arquivos/monitoria/aula%2007%20apoio.pdf*/
 
 /*---------------https://miro.com/app/dashboard/---------------------*/
-/*Ernani*/
-
 /*https://www.arataacademy.com/port/uncategorized/como-aprender-qualquer-materia-fazendo-boas-anotacoes/
 https://pt.wikihow.com/Fazer-Anota%C3%A7%C3%B5es-Usando-o-M%C3%A9todo-Cornell
 https://gugaalves.net/marketing/perguntas-para-validar-ideias/#:~:text=1%20Que%20problemas%20estou%20resolvendo%3F%202%20Como%20outros,
