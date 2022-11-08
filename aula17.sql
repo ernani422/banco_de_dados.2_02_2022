@@ -66,7 +66,7 @@ select * from calendars;
 
 /*----------------------------------------------------------------------*/
 
-
+/*-----*/
 delimiter $$
 
  create procedure RepeatDemo()
