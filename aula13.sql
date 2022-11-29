@@ -121,7 +121,7 @@ set autocommit=1;
 
 /*show engines obs: diretrizes gerais de  como o banco de dados
 se comporta 
-
+*/
 set autocommit=0;
 alter TABLE 
 
@@ -130,7 +130,6 @@ start transaction;
    
 
 select "after delete row of musics table" as 'log';
-/*
 
 COMMIT;
 
@@ -147,7 +146,7 @@ select * from musics;
 
 set autocommit=1;
 
-*/
+
 start transaction;
     alter table musics add good boolean;
 

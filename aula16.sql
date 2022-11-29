@@ -165,7 +165,7 @@ delimiter ;
  create procedure RepeatDemo()
  begin
     declare ctr int default 1;
-    declare result varchar (100 default '';
+    declare result varchar (100 default '');
 
     Repeat
         set result = concat(result, counter, ',');
